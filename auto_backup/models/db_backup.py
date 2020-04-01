@@ -267,7 +267,7 @@ class DbBackup(models.Model):
                 "<p>%s</p><pre>%s</pre>" % (
                     _("Cleanup of old database backups failed."),
                     escaped_tb),
-                subtype=self.env.ref("auto_backup.failure"))
+                subtype=self.env.ref("auto_backup.mail_message_subtype_failure"))
         else:
             _logger.info("Cleanup of old database backups succeeded: %s",
                          self.name)
