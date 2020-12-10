@@ -20,10 +20,10 @@ addon | version | summary
 --- | --- | ---
 [attachment_base_synchronize](attachment_base_synchronize/) | 10.0.1.0.0 | Attachment Base Synchronize
 [auditlog](auditlog/) | 10.0.1.0.0 | Audit Log
-[auth_admin_passkey](auth_admin_passkey/) | 10.0.1.0.1 | Authentification - Admin Passkey
+[auth_admin_passkey](auth_admin_passkey/) | 10.0.1.0.2 | Authentification - Admin Passkey
 [auth_brute_force](auth_brute_force/) | 10.0.2.2.0 | Track Authentication Attempts and Prevent Brute-force Attacks
 [auth_oauth_multi_token](auth_oauth_multi_token/) | 10.0.1.0.0 | Allow multiple connection with the same OAuth account
-[auth_session_timeout](auth_session_timeout/) | 10.0.1.0.2 | This module disable all inactive sessions since a given delay
+[auth_session_timeout](auth_session_timeout/) | 10.0.1.0.3 | This module disable all inactive sessions since a given delay
 [auth_signup_verify_email](auth_signup_verify_email/) | 10.0.2.0.0 | Force uninvited users to use a good email for signup
 [auth_supplier](auth_supplier/) | 10.0.1.0.0 | Auth Supplier
 [auth_totp](auth_totp/) | 10.0.2.0.0 | Allows users to enable MFA and add optional trusted devices
@@ -61,7 +61,7 @@ addon | version | summary
 [base_search_fuzzy](base_search_fuzzy/) | 10.0.1.1.0 | Fuzzy search with the PostgreSQL trigram extension
 [base_suspend_security](base_suspend_security/) | 10.0.1.0.0 | Suspend security checks for a call
 [base_technical_features](base_technical_features/) | 10.0.1.0.1 | Access to technical features without activating debug mode
-[base_technical_user](base_technical_user/) | 10.0.1.0.0 | Add a technical user parameter on the company
+[base_technical_user](base_technical_user/) | 10.0.1.1.0 | Add a technical user parameter on the company
 [base_tier_validation](base_tier_validation/) | 10.0.1.0.1 | Implement a validation process based on tiers.
 [base_user_gravatar](base_user_gravatar/) | 10.0.1.0.1 | Synchronize Gravatar Image
 [base_user_role](base_user_role/) | 10.0.1.0.3 | User roles
@@ -81,7 +81,7 @@ addon | version | summary
 [letsencrypt](letsencrypt/) | 10.0.1.0.0 | Request SSL certificates from letsencrypt.org
 [mail_environment](mail_environment/) | 10.0.1.0.0 | Configure mail servers with server_environment_files
 [mail_log_message_to_process](mail_log_message_to_process/) | 10.0.1.0.0 | Log all messages received, before they start to be processed.
-[mass_editing](mass_editing/) | 10.0.1.1.0 | Mass Editing
+[mass_editing](mass_editing/) | 10.0.2.0.1 | Mass Editing
 [mass_sorting](mass_sorting/) | 10.0.1.0.0 | Sort any models by any fields list
 [module_auto_update](module_auto_update/) | 10.0.2.0.3 | Automatically update Odoo modules
 [module_prototyper](module_prototyper/) | 10.0.1.0.0 | Prototype your module.
@@ -101,7 +101,7 @@ addon | version | summary
 [test_onchange_helper](test_onchange_helper/) | 10.0.2.1.0 | Test addon for the onchange_helper addon
 [user_immutable](user_immutable/) | 10.0.1.0.0 | Add Immutable User Support
 [user_threshold](user_threshold/) | 10.0.1.0.1 | Add Configurable User Threshold Support
-[users_ldap_groups](users_ldap_groups/) | 10.0.0.0.0 | Adds user accounts to groups based on rules defined by the administrator.
+[users_ldap_groups](users_ldap_groups/) | 10.0.0.0.1 | Adds user accounts to groups based on rules defined by the administrator.
 [users_ldap_mail](users_ldap_mail/) | 10.0.1.0.0 | LDAP mapping for user name and e-mail
 [users_ldap_populate](users_ldap_populate/) | 10.0.1.0.3 | LDAP Populate
 [webhook](webhook/) | 10.0.1.0.0 | Webhook

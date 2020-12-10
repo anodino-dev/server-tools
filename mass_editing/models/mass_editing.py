@@ -5,8 +5,8 @@
 from odoo import api, fields, models, _
 
 
-class MassObject(models.Model):
-    _name = "mass.object"
+class MassEditing(models.Model):
+    _name = "mass.editing"
     _description = "Mass Editing Object"
 
     name = fields.Char('Name', required=True, index=1)
@@ -15,8 +15,11 @@ class MassObject(models.Model):
                                help="Model is used for Selecting Fields. "
                                     "This is editable until Sidebar menu "
                                     "is not created.")
-    field_ids = fields.Many2many('ir.model.fields', 'mass_field_rel',
-                                 'mass_id', 'field_id', 'Fields')
+
+    line_ids = fields.One2many(
+        comodel_name="mass.editing.line", inverse_name="mass_editing_id"
+    )
+
     ref_ir_act_window_id = fields.Many2one('ir.actions.act_window',
                                            'Sidebar action',
                                            readonly=True,
@@ -29,6 +32,13 @@ class MassObject(models.Model):
                                       help="Sidebar button to open "
                                            "the sidebar action.")
     model_list = fields.Char('Model List')
+    group_ids = fields.Many2many(
+        comodel_name="res.groups",
+        relation="mass_group_rel",
+        column1="mass_id",
+        column2="group_id",
+        string="Groups",
+    )
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('Name must be unique!')),
@@ -36,7 +46,7 @@ class MassObject(models.Model):
 
     @api.onchange('model_id')
     def _onchange_model_id(self):
-        self.field_ids = [(6, 0, [])]
+        self.line_ids = [(6, 0, [])]
         model_list = []
         if self.model_id:
             model_obj = self.env['ir.model']
@@ -61,6 +71,7 @@ class MassObject(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'mass.editing.wizard',
             'src_model': src_obj,
+            'groups_id': [(4, x.id) for x in self.group_ids],
             'view_type': 'form',
             'context': "{'mass_editing_object' : %d}" % (self.id),
             'view_mode': 'form, tree',
@@ -89,7 +100,7 @@ class MassObject(models.Model):
     @api.multi
     def unlink(self):
         self.unlink_action()
-        return super(MassObject, self).unlink()
+        return super(MassEditing, self).unlink()
 
     @api.multi
     @api.returns('self', lambda value: value.id)
@@ -97,4 +108,4 @@ class MassObject(models.Model):
         if default is None:
             default = {}
         default.update({'name': _("%s (copy)" % self.name), 'field_ids': []})
-        return super(MassObject, self).copy(default)
+        return super(MassEditing, self).copy(default)
